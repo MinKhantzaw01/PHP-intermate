@@ -1,10 +1,23 @@
 <?php
 require_once "Member.php";
 
-$rp=new ReflectionProperty('App\Member','detailInfo');
 $mem=new App\Member();
-$rp->setAccessible(true);
-showData($rp->getValue($mem));
+$ro=new ReflectionObject($mem);
+echo $ro->getName();
+echo "<hr>";
+//Parameter
+// $rp=new ReflectionParameter(['App\Member','getdetailInfo'],1);
+
+// echo $rp->isDefaultValueAvailable() ? $rp->getDefaultValue() : "Not Default Values";
+// echo "<br>" .$rp->getType();
+// echo "<hr>";
+
+
+//Property
+// $rp=new ReflectionProperty('App\Member','detailInfo');
+// $mem=new App\Member();
+// $rp->setAccessible(true);
+// showData($rp->getValue($mem));
 //Method
 // $rm=new ReflectionMethod('App\Member','getdetailInfo');
 
@@ -32,7 +45,7 @@ showData($rp->getValue($mem));
 // function showData($ary){
 //     echo "<pre>".print_r($ary,true)."</pre>";
 // }
-showData(get_class_methods($rp));
+showData(get_class_methods($ro));
 
 function showData($ary){
     echo "<pre>".print_r($ary,true)."</pre>";

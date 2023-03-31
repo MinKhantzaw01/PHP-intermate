@@ -7,7 +7,7 @@ class Member{
         "age"=>"20",
         "school"=>"Yangon"
     ];
-    public function getdetailInfo($ary){
+    public function getdetailInfo($ary,int $data=50){
         // return $this->detailInfo;
         return $ary;
     }
